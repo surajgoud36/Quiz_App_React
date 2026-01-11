@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -81,25 +83,7 @@ div#root {
 }
 
 /* Page 2 */
-@media (max-width: 650px) {
-  .page1::before,
-  .page2::before {
-    top: -40px;
-    right: -40px;
-  }
-  .page1::after,
-  .page2::after {
-    bottom: -40px;
-    left: -40px;
-  }
-  body {
-    overflow: hidden;
-  }
-  .page2 {
-    padding: 0;
-    overflow: hidden;
-  }
-}
+
 .page2 {
   position: relative;
   width: 100%;
@@ -108,7 +92,37 @@ div#root {
   display: flex;
   justify-content: center;
 }
-
+@media only screen and  (max-width: 650px) {
+  body{
+    display: block;
+    height: unset;
+    height: 100vh;
+  }
+  .page1::before,
+  .page2::before {
+    top: -70px;
+    right: -70px;
+  }
+  .page1::after,
+  .page2::after {
+    bottom: -40px;
+    left: -40px;
+  }
+ 
+  .page2 {
+    padding: 5px 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  fieldset{
+    row-gap: 12px;
+  }
+  form{
+    padding-top: 20px;
+  }
+}
 .divider {
   border: none; /* remove default browser style */
   margin: 0;
@@ -137,7 +151,7 @@ form {
   color: #293264;
   font-family: "Karla", sans-serif;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 13px;
   text-align: left;
   margin-bottom: 12px;
 }
@@ -147,13 +161,14 @@ fieldset {
   padding: 0;
   min-inline-size: 0; /* prevents weird stretching in some browsers */
   display: flex;
+  flex-wrap: wrap;
   column-gap: 13px;
 }
 .option {
   color: #293264;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 9px;
   border: 1px solid #4d5b9e;
   border-radius: 8px;
   cursor: pointer;
